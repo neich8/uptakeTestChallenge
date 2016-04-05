@@ -1,6 +1,6 @@
 
 Ideally page objects would have a selector for pretty much all elements on pages.
-If you were to have all/most elements for every page. you would want to split them up into classes so
+If you were to have all/most elements for every page you would want to split them up into classes so
 they are reusable and easily readable.
 
 Also the assumption is in a real scenario you would be using a selenium grid so the browser instantiation
