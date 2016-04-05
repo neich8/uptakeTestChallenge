@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by nick on 4/3/16.
@@ -18,9 +20,12 @@ public class HomePage extends BasePageObject {
     @FindBy(className = "icon--next")
     WebElement scrollDownLink;
 
+    @FindBy(id = "callout")
+    WebElement uptakeDescription;
+
     public HomePage(WebDriver driver) {
         super(driver);
-        new HeaderNav(driver);
+        headerNav = new HeaderNav(driver);
         PageFactory.initElements(this.driver, this);
     }
 
@@ -28,12 +33,14 @@ public class HomePage extends BasePageObject {
         scrollDownLink.click();
     }
 
+    public WebElement getUptakeDescription() {
+        return uptakeDescription;
+    }
+
     public SolutionsPage clickLinktoSolutionsPage() {
-        try {
-            solutionsLink.click();
-        } catch (WebDriverException e) {
-            System.out.println("try scrolling down the page first");
-        }
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.elementToBeClickable(solutionsLink));
+        solutionsLink.click();
         return new SolutionsPage(driver);
     }
 }

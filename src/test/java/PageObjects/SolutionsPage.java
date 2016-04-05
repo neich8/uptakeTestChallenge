@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
  * Created by nick on 4/4/16.
  */
 public class SolutionsPage extends BasePageObject {
-    HeaderNav headerNav;
+    public HeaderNav headerNav;
 
     @FindBy(id = "industrial")
     WebElement conditionMonitoringSection;
@@ -24,8 +24,10 @@ public class SolutionsPage extends BasePageObject {
     public SolutionsPage(WebDriver driver) {
         super(driver);
         headerNav = new HeaderNav(driver);
+
         PageFactory.initElements(driver, this);
     }
+
 
     public boolean conditionMonitoringSectionisDisplayed() {
         return conditionMonitoringSection.isDisplayed() &&

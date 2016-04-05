@@ -43,8 +43,13 @@ public class HeaderNav {
         return driver.findElement(By.cssSelector(".icon--logo"));
     }
 
-    public void clickLogo() {
-        System.out.println("clicking");
+    public HomePage clickLogo() {
         logo.click();
+        return new HomePage(driver);
+    }
+
+    public SolutionsPage clickSolutions() {
+        solutions.click();
+        return new SolutionsPage(driver);
     }
 }

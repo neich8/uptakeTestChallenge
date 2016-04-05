@@ -1,6 +1,7 @@
 <suite name="uptake tests" >
     <test name="homepage tests">
         <class name="HomePageTest"/>
+        <class name="solutionsTest"/>
     </test>
 
 </suite>
